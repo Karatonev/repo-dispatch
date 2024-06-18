@@ -12,3 +12,9 @@ jobs:
                 JOJOBA: ${{ github.event.client_payload.message }}
               run: echo $MESSAGE
         
+        run_every_time:
+          runs-on: ubuntu-latest
+          steps:
+            - name: Step to dispplay payload message
+              run: echo ${{ github.event.client_payload.message }}
+
