@@ -16,5 +16,7 @@ jobs:
           runs-on: ubuntu-latest
           steps:
             - name: Step to dispplay payload message
-              run: echo ${{ github.event.client_payload.message }}
+              run: | 
+                echo "MESSAGE=${{ github.event.client_payload.message }}" >> $GITHUB_ENV
+                echo $MESSAGE
 
