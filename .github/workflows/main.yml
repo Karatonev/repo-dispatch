@@ -23,6 +23,9 @@ jobs:
             - name: 'display workflow variable'
               run: echo ${{ vars.workflow_variable }}
 
+            - name: 'Display my org variable'
+              run: echo ${{ vars.My_ORG_variable }}
+   
         
 
 
