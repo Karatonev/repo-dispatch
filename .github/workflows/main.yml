@@ -4,6 +4,7 @@ on:
         types: [test_result]
 env: 
     workflow_variable: workflow_value
+    org_variable: ${{ vars.My_ORG_variable }}
 jobs:
         run_if_failure:
           if: ${{ github.event.client_payload.passed }}
@@ -24,7 +25,7 @@ jobs:
               run: echo ${{ vars.workflow_variable }}
 
             - name: 'Display my org variable'
-              run: echo ${{ vars.My_ORG_variable }}
+              run: echo ${{ vars.org_variable }}
    
         
 
