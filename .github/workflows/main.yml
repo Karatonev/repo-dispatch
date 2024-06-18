@@ -2,6 +2,8 @@ name: 'Workflow that runs on a event outside github'
 on: 
     repository_dispatch:
         types: [test_result]
+env: 
+    workflow_variable: workflow_value
 jobs:
         run_if_failure:
           if: ${{ github.event.client_payload.passed }}
@@ -15,7 +17,12 @@ jobs:
         run_every_time:
           runs-on: ubuntu-latest
           steps:
-            - name: Step to dispplay payload message
-              run: | 
+            - run: | 
                 echo ${{ github.event.client_payload.message }}
+
+            - name: 'display workflow variable'
+              run: echo ${{ vars.workflow_variable }}
+
+        
+
 
